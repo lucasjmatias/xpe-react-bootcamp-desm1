@@ -1,0 +1,39 @@
+<div class="filter">
+  <h2>Filtro</h2>
+  <div class="fields">
+    <label for="init-date">Data início</label>
+    <input id="init-date" name="init-date" type="date" />
+    <label for="end-date">Data fim</label>
+    <input id="end-date" name="end-date" type="date" />
+    <label for="country">País</label>
+    <select id="country" name="country">
+    </select>
+    <label for="data-type">Dados</label>
+    <select id="data-type" name="data-type">
+      <option value="Deaths">Número de óbitos</option>
+      <option value="Confirmed">Cofirmados</option>
+      <option value="Recovered">Recuperados</option>
+    </select>
+    <button type="button" id="send" name="send">Filtrar</button>
+  </div>
+</div>
+<div class="daily-curve">
+  <canvas id="daily-curve-chart"></canvas>
+</div>
+<div class="indicadores">
+  <h2>Indicadores</h2>
+  <div class="content">
+    <div>
+      <label>Total confirmados</label>
+      <div id="total-confirmed" class="valor"></div>
+    </div>
+    <div>
+      <label>Total mortes</label>
+      <div id="total-deaths" class="valor"></div>
+    </div>
+    <div>
+      <label>Total recuperados</label>
+      <div id="total-recovered" class="valor"></div>
+    </div>
+  </div>
+</div>

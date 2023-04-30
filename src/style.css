@@ -87,11 +87,6 @@ header > nav a {
   flex-wrap: wrap;
 }
 
-.content-area main .products {
-  flex: 1 1;
-  justify-content: space-around;
-}
-
 main > div {
   background-color: #fff;
   padding: 30px;
@@ -144,4 +139,49 @@ main > div {
 .total-deaths-by-country {
   width: 100%;
   height: 500px;
+}
+
+main h2 {
+  border-bottom: 1px solid #ddd;
+  width: 100%;
+}
+
+main .filter > div {
+  margin-top: 20px;
+}
+
+main .filter .fields {
+  display: flex;
+  width: 200px;
+  flex-flow: column;
+}
+
+main .filter .fields > label {
+  margin-top: 10px;
+}
+
+main .filter .fields > button {
+  margin-top: 20px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.daily-curve {
+  width: 500px;
+  height: 400px;
+}
+
+.indicadores {
+  width: 200px;
+}
+
+.indicadores > .content > div {
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+  margin-top: 20px;
+}
+
+.indicadores > .content > div > div {
+  text-align: right;
 }

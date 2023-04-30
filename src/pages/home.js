@@ -1,9 +1,14 @@
 import { rankTop10Deaths } from '../modules/countries.js';
 import covidApi from '../modules/covidApi.js';
-import { dateFormat, numberFormat, updateElmText } from '../modules/utils.js';
+import {
+  datetimeFormat,
+  numberFormat,
+  updateElmText,
+  updateElmTextNumeric,
+} from '../modules/utils.js';
 
 async function prepareHomePage() {
-  const summaryResponse = await covidApi.get('summary');
+  const summaryResponse = await covidApi.get('/summary');
   const globalSummary = summaryResponse.data.Global;
   const countries = summaryResponse.data.Countries;
 
@@ -39,12 +44,10 @@ function populateSummary({
   totalRecovered,
   updateDate,
 }) {
-  const updateElmTextNumeric = updateElmText(numberFormat);
-
   updateElmTextNumeric('total-confirmed', totalConfirmed);
   updateElmTextNumeric('total-deaths', totalDeaths);
   updateElmTextNumeric('total-recovered', totalRecovered);
-  updateElmText(dateFormat)('update-date', updateDate);
+  updateElmText(datetimeFormat)('update-date', updateDate);
 }
 
 function newCasesChart({ newConfirmed, newRecovered, newDeaths }) {
