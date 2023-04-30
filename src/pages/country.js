@@ -42,7 +42,7 @@ async function prepareCountryFilter() {
 
   countriesElm.innerHTML = '';
   const countriesResponse = await covidApi.get('countries');
-  const countries = countriesResponse.data;
+  const countries = R.sortBy(R.prop('Country'))(countriesResponse.data);
 
   for (const country of countries) {
     const optionElm = document.createElement('option');
@@ -63,6 +63,7 @@ async function prepareSummary() {
   const summary = summaryResponse.data.Countries.find(
     (c) => c.Slug === country
   );
+  if (!summary) return;
   updateElmTextNumeric('total-confirmed', summary.TotalConfirmed);
   updateElmTextNumeric('total-deaths', summary.TotalDeaths);
   updateElmTextNumeric('total-recovered', summary.TotalRecovered);
