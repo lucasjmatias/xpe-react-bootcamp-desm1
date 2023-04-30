@@ -17,7 +17,7 @@ header {
   color: white;
   padding-top: 20px;
   text-align: center;
-  box-shadow: 2px 2px 8px #583a7f;
+  box-shadow: 2px 2px 8px #8d6cb7;
 }
 
 header > h1,
@@ -116,6 +116,11 @@ main > div {
   font-weight: bold;
 }
 
+.summary > .content > div {
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+}
+
 .summary > .content > div > .valor {
   text-align: right;
 }
@@ -125,6 +130,7 @@ main > div {
   border-top: 1px solid #ddd;
   color: #555;
   padding: 10px;
+  box-sizing: border-box;
   position: absolute;
   bottom: 0px;
   left: 0px;

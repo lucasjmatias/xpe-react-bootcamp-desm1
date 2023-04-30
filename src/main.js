@@ -5,49 +5,59 @@ import { dateFormat, numberFormat } from './utils.js';
   try {
     const summaryResponse = await covidApi.get('summary');
     const globalSummary = summaryResponse.data.Global;
-    console.log(globalSummary);
-    populateSummary(
-      globalSummary.TotalConfirmed,
-      globalSummary.TotalDeaths,
-      globalSummary.TotalRecovered,
-      globalSummary.Date
-    );
 
-    newCasesChart(
-      globalSummary.NewConfirmed,
-      globalSummary.NewRecovered,
-      globalSummary.NewDeaths
-    );
+    const {
+      TotalConfirmed: totalConfirmed,
+      TotalDeaths: totalDeaths,
+      TotalRecovered: totalRecovered,
+      Date: updateDate,
+      NewConfirmed: newConfirmed,
+      NewRecovered: newRecovered,
+      NewDeaths: newDeaths,
+    } = globalSummary;
+
+    populateSummary({
+      totalConfirmed,
+      totalDeaths,
+      totalRecovered,
+      updateDate,
+    });
+
+    newCasesChart({
+      newConfirmed,
+      newRecovered,
+      newDeaths,
+    });
   } catch (error) {
     console.log(error);
   }
 })();
 
-function populateSummary(
-  totalConfirmados,
-  totalMortes,
-  totalRecuperados,
-  dataAtualizacao
-) {
-  const totalConfirmadosElm = document.getElementById('total-confirmados');
-  const totalMortesElm = document.getElementById('total-mortes');
-  const totalRecuperadosElm = document.getElementById('total-recuperados');
-  const dataAtualizacaoElm = document.getElementById('data-atualizacao');
+function populateSummary({
+  totalConfirmed,
+  totalDeaths,
+  totalRecovered,
+  updateDate,
+}) {
+  const totalConfirmedElm = document.getElementById('total-confirmed');
+  const totalDeathsElm = document.getElementById('total-deaths');
+  const totalRecoveredElm = document.getElementById('total-recovered');
+  const updateDateElm = document.getElementById('update-date');
 
-  totalConfirmadosElm.innerText = numberFormat(totalConfirmados);
-  totalMortesElm.innerText = numberFormat(totalMortes);
-  totalRecuperadosElm.innerText = numberFormat(totalRecuperados);
-  dataAtualizacaoElm.innerText = dateFormat(dataAtualizacao);
+  totalConfirmedElm.innerText = numberFormat(totalConfirmed);
+  totalDeathsElm.innerText = numberFormat(totalDeaths);
+  totalRecoveredElm.innerText = numberFormat(totalRecovered);
+  updateDateElm.innerText = dateFormat(updateDate);
 }
 
-function newCasesChart(confirmados, recuperados, mortes) {
+function newCasesChart({ newConfirmed, newRecovered, newDeaths }) {
   const ctx = document.getElementById('new-cases-chart');
   const data = {
     labels: ['Confirmados', 'Recuperados', 'Mortes'],
     datasets: [
       {
         label: 'Distribuição de novos casos',
-        data: [confirmados, recuperados, mortes],
+        data: [newConfirmed, newRecovered, newDeaths],
         backgroundColor: [
           'rgb(255, 205, 86)',
           'rgb(54, 162, 235)',
