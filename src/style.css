@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;
+  font-size: 13px;
+}
+
+body {
+  background-color: #e5e8ff;
+}
+
+header {
+  background-color: #9266cc;
+  color: white;
+  padding-top: 20px;
+  text-align: center;
+  box-shadow: 2px 2px 8px #583a7f;
+}
+
+header > h1,
+header > h1 > img {
+  vertical-align: middle;
+  text-shadow: 1px 1px 5px #583a7f, -1px -1px 2px #e5e8ff;
+}
+
+header > h1 > img {
+  box-shadow: 3px 3px 8px #e5e8ff, -3px -3px 8px #e5e8ff, 1px 1px 5px #583a7f;
+  width: 48px;
+  height: 48px;
+}
+
+header > h1 > span {
+  margin-left: 15px;
+}
+
+header > nav {
+  max-width: 1294px;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: #9266cc;
+  border-bottom: 3px solid #b997e4;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+header > nav > ul {
+  display: inline-block;
+  color: white;
+  display: flex;
+  height: 30px;
+}
+
+header > nav > ul > li {
+  list-style-type: none;
+  border-right: 3px solid #b997e4;
+  height: 100%;
+}
+
+header > nav > ul > li:last-child {
+  border-right: 0px;
+}
+
+header > nav a {
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  line-height: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-left: 20px;
+  display: inline-block;
+}
+
+.content-area {
+  max-width: 1294px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+}
+
+.content-area main {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.content-area main .products {
+  flex: 1 1;
+  justify-content: space-around;
+}
+
+main > div {
+  background-color: #fff;
+  padding: 30px;
+  box-shadow: 2px 2px 5px #b997e4, -1px -1px 8px #b997e4;
+  border-radius: 3px;
+  margin: 10px;
+}
+
+.summary {
+  position: relative;
+}
+
+.summary .content {
+  width: 300px;
+}
+
+.summary > .content > div {
+  padding: 5px;
+}
+
+.summary > .content > div > label {
+  font-weight: bold;
+}
+
+.summary > .content > div > .valor {
+  text-align: right;
+}
+
+.summary > div:last-child {
+  width: 100%;
+  border-top: 1px solid #ddd;
+  color: #555;
+  padding: 10px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
+
+.new-cases-distribution {
+  width: 300px;
+  height: 300px;
+}
